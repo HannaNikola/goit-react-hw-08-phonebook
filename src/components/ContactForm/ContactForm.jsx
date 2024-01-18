@@ -5,8 +5,8 @@ import * as Yup from 'yup';
 import { StyleForm, ButtonAdd, StyleError, InputStyle, Box } from './ContactForm.styled';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'store/Selectors';
-import { addContactApi } from 'store/reducerContactSlice';
+import { selectContacts } from '../../redux/contacts/Selectors';
+import { addContactApi } from '../../redux/contacts/reducerContactSlice';
 
 
 
@@ -19,7 +19,7 @@ const phonebookSchema = Yup.object().shape({
 
 export const ContactForm = () => {
     const dispatch = useDispatch();
-    
+
     const contacts = useSelector(selectContacts);
 
 
@@ -39,10 +39,10 @@ export const ContactForm = () => {
         try {
             await dispatch(addContactApi(contactWithId))
         } catch (error) {
-            console.error('Mistake',error)
+            console.error('Mistake', error)
         }
-        
-        
+
+
 
     }
 

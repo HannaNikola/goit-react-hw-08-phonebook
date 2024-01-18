@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { List, ListItem, ButtonDelete } from "./ContactList.styled";
-import { selectContacts, selectFilter } from "store/Selectors";
-import { deleteContactApi } from "store/reducerContactSlice";
-import { createSelector } from "reselect"; 
+import { selectContacts, selectFilter } from "../../redux/contacts/Selectors";
+import { deleteContactApi } from "../../redux/contacts/reducerContactSlice";
+import { createSelector } from "reselect";
 
 
 const selectVisibleContacts = createSelector(

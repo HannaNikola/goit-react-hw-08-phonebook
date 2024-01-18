@@ -5,37 +5,40 @@
 import { Conteiner } from './App.styled';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchContactsApi } from 'store/reducerContactSlice';
+// import { fetchContactsApi } from '../../redux/contacts/reducerContactSlice';
 // import { RegistrForm } from '../RegistrForm/RegistrForm';
 // import { LoginForm } from '../LoginForm/LoginForm';
-import {  Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 // import ContactPage from '../../Pages/ContactPage';
 // import LoginFormPage from '../../Pages/LoginFormPage';
 // import RegistrFormPage from '../../Pages/RegistrFormPage';
 // import HomePage from '../../Pages/Home.page';
 import { Layout } from '../Layouyt/Layout';
 import { lazy } from "react";
+import { refreshUser } from '../../redux/auth/operations';
+import { useAuth } from 'hooks/useAuth';
 
 
-const HomePage = lazy(() => import('../../Pages/Home.page'));
-const ContactPage = lazy(() => import('../../Pages/ContactPage'));
-const RegistrFormPage = lazy(() => import('../../Pages/RegistrFormPage'));
-const LoginFormPage = lazy(() => import('../../Pages/LoginFormPage'));
+const HomePage = lazy(() => import('../../pages/Home.page'));
+const ContactPage = lazy(() => import('../../pages/ContactPage'));
+const RegistrFormPage = lazy(() => import('../../pages/RegistrFormPage'));
+const LoginFormPage = lazy(() => import('../../pages/LoginFormPage'));
 
 
 export const App = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(fetchContactsApi());
-   
-  })
- 
+    dispatch(refreshUser());
+  }, [dispatch]);
 
 
-  return (
-    <>
-      
+
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
+
       <Conteiner>
         <Routes>
 
@@ -44,11 +47,11 @@ export const App = () => {
             <Route path='contacts' element={<ContactPage />} />
             <Route path='register' element={<RegistrFormPage />} />
             <Route path='login' element={<LoginFormPage />} /></Route>
-          
-    </Routes >
-        </Conteiner>
-     
-    </>
+
+        </Routes >
+      </Conteiner>
+
+    // </>
   )
 
 }

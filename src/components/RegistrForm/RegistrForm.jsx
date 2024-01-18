@@ -1,5 +1,7 @@
 import { Formik, Field, Form } from 'formik';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+import { register } from '../../redux/auth/operations';
 
 
 
@@ -10,6 +12,21 @@ const SignupUser = Yup.object().shape({
 
 
 export const RegistrForm = () => {
+    const dispatch = useDispatch();
+
+    const hendlSubmitRegistr = e => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        dispatch(
+            register({
+                name: form.elements.name.value,
+                email: form.elements.email.value,
+                password: form.elements.password.value,
+            })
+        );
+        form.reset();
+    };
+
     return (
         <div>
             <h1>Register</h1>
@@ -20,13 +37,14 @@ export const RegistrForm = () => {
                     password: '',
                 }}
                 validationSchema={SignupUser}
-                
+
             >
-                <Form>
+                <Form onSubmit={hendlSubmitRegistr} autoComplete='off'>
+
                     <label htmlFor="name">Name</label>
                     <Field id="name" name="name" placeholder="Jane" />
 
-                    
+
 
                     <label htmlFor="email">Email</label>
                     <Field
@@ -42,6 +60,6 @@ export const RegistrForm = () => {
                     <button type="submit">Submit</button>
                 </Form>
             </Formik>
-      </div>
-  )  
+        </div>
+    )
 }
