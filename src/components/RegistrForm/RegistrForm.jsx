@@ -55,7 +55,7 @@ export const RegistrForm = () => {
                     />
 
                     <label htmlFor="password">Password</label>
-                    <Field id="password" name="password" />
+                    <Field id="password" name="password" typy ="password" />
 
                     <button type="submit">Submit</button>
                 </Form>

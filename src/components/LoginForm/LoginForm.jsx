@@ -1,7 +1,7 @@
 import { Formik, Field, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { login } from '../../redux/auth/operations';
+import { logIn } from '../../redux/auth/operations';
 
 const LoginUser = Yup.object().shape({
     name: Yup.string().min(3, 'Too short!').required('This field is required'),
@@ -18,7 +18,7 @@ export const LoginForm = () => {
         const form = event.currentTarget;
 
         dispatch(
-            login({
+            logIn({
                 email: form.elements.email.value,
                 password: form.elements.password.value,
             })
