@@ -1,14 +1,20 @@
 import { NavLink } from 'react-router-dom';
-import { AuthNav } from 'components/AuthNav/AuthNav';
-
+//  import { UserMenu } from 'components/AuthNav/AuthNav';
+import { useAuth } from 'hooks/useAuth';
 
 export const Navigation = () => {
+    const { isLoggedIn } = useAuth();
     return (
         <nav>
-            <NavLink to='/'>Home</NavLink>
-            <NavLink to='/contacts'>Contacts</NavLink>
-            <AuthNav/>
-           {/* додать логику рендера компонента AuthNav и перенести в другой фаил  */}
+            <NavLink to='/'>
+                Home
+            </NavLink>
+            {isLoggedIn && (
+            <NavLink to='/contacts'>
+                Contacts
+            </NavLink>
+            )}
+            {/* <UserMenu/> */}
         </nav>
     )
 }

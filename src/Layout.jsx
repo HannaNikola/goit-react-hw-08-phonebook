@@ -1,17 +1,17 @@
-import { Conteiner } from '../App/App.styled';
+import { Conteiner } from './AppBar/App.styled';
 import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
-import { Suspense} from 'react';
+import { Suspense } from 'react';
 
 export const Layout = () => {
     return (
         <div>
             <Conteiner>
                 <Header />
-                <Suspense fallback={'loading... '}>
+                <Suspense fallback={null}>
                     <Outlet />
                 </Suspense>
-                </Conteiner>
-       </div>
-   )
+            </Conteiner>
+        </div>
+    )
 }
