@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-//  import { UserMenu } from 'components/AuthNav/AuthNav';
 import { useAuth } from 'hooks/useAuth';
 
 export const Navigation = () => {
@@ -14,7 +13,7 @@ export const Navigation = () => {
                 Contacts
             </NavLink>
             )}
-            {/* <UserMenu/> */}
+            
         </nav>
     )
 }
