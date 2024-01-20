@@ -7,6 +7,8 @@ import { Layout } from './Layout';
 import { lazy } from "react";
 import { refreshUser } from './redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
+import { PrivateRoute } from './PrivateRoute';
+import { GuardRoute } from './GuardRoute';
 
 
 const HomePage = lazy(() => import('./pages/Home.page'));
@@ -34,9 +36,10 @@ export const App = () => {
 
         <Route path='/' element={<Layout />} ><Route path='/' element={<HomePage />} />
           <Route index element={<HomePage />} />
-          <Route path='contacts' element={<ContactPage />} />
-          <Route path='register' element={<RegistrFormPage />} />
-          <Route path='login' element={<LoginFormPage />} /></Route>
+            <Route path='contacts' element={
+              <PrivateRoute redirectTo='login'><ContactPage /></PrivateRoute>} />
+            <Route path='register' element={<GuardRoute redirectTo='login'><RegistrFormPage /></GuardRoute>} />
+            <Route path='login' element={<GuardRoute redirectTo='contacts'><LoginFormPage /></GuardRoute>} /></Route>
 
       </Routes >
     </Conteiner>
@@ -45,6 +48,7 @@ export const App = () => {
   )
 
 }
+
 
 
 
