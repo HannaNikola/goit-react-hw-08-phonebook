@@ -8,6 +8,29 @@ import { useAuth } from '../../hooks/useAuth';
 import { Box, AppBar, Toolbar, Typography } from '@mui/material';
  
 
+
+export const Header = () => {
+    const { isLoggedIn } = useAuth();
+    return (
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        <Navigation />
+                    </Typography> 
+            {/* <Navigation /> */}
+                    {isLoggedIn ? <UserMenu /> : <AuthNav />}
+                </Toolbar>
+            </AppBar>
+        </Box>
+
+    );
+}
+
+
+
+
+
 // export const Header = () => {
 //     const { isLoggedIn } = useAuth();
 //     return (
@@ -20,47 +43,3 @@ import { Box, AppBar, Toolbar, Typography } from '@mui/material';
        
 //     );
 // };
-
-
-export const Header = () => {
-    const { isLoggedIn } = useAuth();
-    return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
-                <Toolbar>
-                       
-            <Navigation />
-                    {isLoggedIn ? <UserMenu /> : <AuthNav />}
-                </Toolbar>
-            </AppBar>
-        </Box>
-
-    );
-}
-
-// export default function ButtonAppBar() {
-//     const { isLoggedIn } = useAuth();
-//     return (
-//         <Box sx={{ flexGrow: 1 }}>
-//             <AppBar position="static">
-//                 <Toolbar>
-//                     <IconButton
-//                         size="large"
-//                         edge="start"
-//                         color="inherit"
-//                         aria-label="menu"
-//                         sx={{ mr: 2 }}
-//                     >
-//                         <MenuIcon />
-//                     </IconButton>
-//                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-//                         News
-//                     </Typography>
-//                     <Button color="inherit">Login</Button>
-//                 </Toolbar>
-//                 <Navigation />
-//                            {isLoggedIn ? <UserMenu /> : <AuthNav />}
-//             </AppBar>
-//         </Box>
-//     );
-// }
