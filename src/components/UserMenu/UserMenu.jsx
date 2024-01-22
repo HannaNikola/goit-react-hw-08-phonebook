@@ -10,7 +10,7 @@ export const UserMenu = () => {
         <div>
             <p>Welcom {user.email}</p>
             <Button color="inherit" type="button" onClick={() => dispatch(logOut())}>Logout</Button>
-            {/* <button type="button" onClick={() => dispatch(logOut())}>Logout</button> */}
+            
         </div>
     )
 }
