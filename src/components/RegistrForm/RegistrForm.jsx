@@ -37,7 +37,7 @@ export const RegistrForm = () => {
         validationSchema: SignupUser,
         onSubmit: (values) => {
             dispatch(register(values));
-            // formik.resetForm();
+            
         },
     });
 

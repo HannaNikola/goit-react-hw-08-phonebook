@@ -18,7 +18,7 @@ export const Header = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         <Navigation />
                     </Typography> 
-            {/* <Navigation /> */}
+            
                     {isLoggedIn ? <UserMenu /> : <AuthNav />}
                 </Toolbar>
             </AppBar>

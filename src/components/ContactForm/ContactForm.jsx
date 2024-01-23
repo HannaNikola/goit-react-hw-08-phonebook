@@ -1,5 +1,5 @@
 
-
+import { Toaster, toast } from 'react-hot-toast';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { StyleForm, ButtonAdd, StyleError, InputStyle, Box } from './ContactForm.styled';
@@ -31,7 +31,8 @@ export const ContactForm = () => {
         const name = newContact.name;
 
         if (contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())) {
-            alert(`${name} :you have this number in your Phone Book.`);
+           
+            toast.error(`${name} you have this number in your Phone Book.`);
             return;
         }
 
@@ -80,6 +81,10 @@ export const ContactForm = () => {
                 </StyleForm>
 
             </Formik>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
         </Box>
     );
 };

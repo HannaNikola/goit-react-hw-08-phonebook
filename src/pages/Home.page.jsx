@@ -1,4 +1,4 @@
-// import { AuthNav } from "components/AuthNav/AuthNav"
+
 
 
 export default function HomePage() {
@@ -6,7 +6,7 @@ export default function HomePage() {
         
         <>
             <h1>Welcome</h1>
-            {/* <AuthNav/> */}
+            
         </>
     )
 }
