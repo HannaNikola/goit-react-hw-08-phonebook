@@ -1,4 +1,4 @@
-
+import { Toaster, toast } from 'react-hot-toast';
 
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
@@ -37,7 +37,7 @@ export const LoginForm = () => {
         validationSchema: LoginUser,
         onSubmit: (values) => {
             dispatch(logIn(values));
-           
+            toast.error(`That name or pasword  doesn't exist`);
         },
     });
 
@@ -104,7 +104,11 @@ export const LoginForm = () => {
                     <Button type="submit" variant="contained" endIcon={<SendIcon />} fullWidth>
                         Submit
                     </Button>
-                </form>
+            </form>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
             </div>
         
     )
