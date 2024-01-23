@@ -20,8 +20,9 @@ export const InputStyle = styled(Field)`
 
 export const Box = styled.div`
   border: 1px solid #1e88e5cf;
-  width: 500px;
+  width: 400px;
   padding: 50px;
+  margin: auto;
 `;
 
 export const ButtonAdd = styled.button`
@@ -31,7 +32,7 @@ export const ButtonAdd = styled.button`
   background-color: #1e88e5cf;
   border: 1px solid transparent;
   border-radius: 5px;
-  width: 300px;
+  width: 280px;
   margin-top: 20px;
   margin-bottom: 15px;
 
