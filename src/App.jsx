@@ -34,8 +34,8 @@ export const App = () => {
     <Conteiner>
       <Routes>
 
-        <Route path='/' element={<Layout />} ><Route path='/' element={<HomePage />} />
-          <Route index element={<HomePage />} />
+          <Route path='/' element={<Layout />} ><Route index element={<HomePage />} />
+          {/* <Route index element={<HomePage />} /> */}
             <Route path='contacts' element={
               <PrivateRoute redirectTo='login'><ContactPage /></PrivateRoute>} />
             <Route path='register' element={<GuardRoute redirectTo='login'><RegistrFormPage /></GuardRoute>} />
