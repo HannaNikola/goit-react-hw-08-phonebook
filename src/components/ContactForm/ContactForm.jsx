@@ -64,7 +64,7 @@ export const ContactForm = () => {
                     
                     addContactHandle(values);
                     
-                    actions.resetForm();
+                    // actions.resetForm();
 
                 }}
 
