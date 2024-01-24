@@ -43,7 +43,7 @@ export const logIn = createAsyncThunk(
             return response.data;
 
         } catch (error) {
-            toast.error(`${body.name} you have this number in your Phone Book.`);
+            toast.error(` This user is not registered.`);
             return thunkAPI.rejectWithValue(error.massage);
         }
         
