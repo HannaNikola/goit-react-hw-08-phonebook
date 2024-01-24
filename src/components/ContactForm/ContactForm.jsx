@@ -7,6 +7,7 @@ import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from '../../redux/contacts/Selectors';
 import { addContactApi } from '../../redux/contacts/reducerContactSlice';
+// import { isAction } from '@reduxjs/toolkit';
 
 
 
@@ -60,9 +61,11 @@ export const ContactForm = () => {
 
                 validationSchema={phonebookSchema}
                 onSubmit={(values, actions) => {
-
+                    
                     addContactHandle(values);
+                    
                     actions.resetForm();
+
                 }}
 
             >
