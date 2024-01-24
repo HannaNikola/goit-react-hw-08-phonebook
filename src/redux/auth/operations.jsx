@@ -43,7 +43,7 @@ export const logIn = createAsyncThunk(
             return response.data;
 
         } catch (error) {
-            toast.error(` This user is not registered.`);
+            toast.error(` This user is not registered or wrong password or name.`);
             return thunkAPI.rejectWithValue(error.massage);
         }
         
